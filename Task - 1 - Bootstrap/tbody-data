@@ -1,0 +1,186 @@
+
+<tr>
+    <td>1</td>
+    <td>xyz-298</td>
+    <td class="wrapText">Ali</td>
+    <td>Male</td>
+    <td>20</td>
+    <td>
+        <button type="button" class="btn btn-primary edit-button">Edit</button>
+    </td>
+
+    <td>
+        <button type="button" class="btn btn-danger delete-button">Delete</button>
+    </td>
+</tr>
+
+<tr>
+    <td>2</td>
+    <td>xyz-298</td>
+    <td>Umer</td>
+    <td>Male</td>
+    <td>26</td>
+    <td>
+        <button type="button" class="btn btn-primary edit-button">Edit</button>
+    </td>
+    <td>
+        <button type="button" class="btn btn-danger delete-button">Delete</button>
+    </td>
+</tr>
+
+<tr>
+    <td>3</td>
+    <td>xyz-298</td>
+    <td>Mahad</td>
+    <td>Male</td>
+    <td>21</td>
+    <td>
+        <button type="button" class="btn btn-primary edit-button">Edit</button>
+    </td>
+
+    <td>
+        <button type="button" class="btn btn-danger delete-button">Delete</button>
+    </td>
+</tr>
+
+
+<tr>
+    <td>4</td>
+    <td>xyz-298</td>
+    <td>Hamza</td>
+    <td>Male</td>
+    <td>18</td>
+    <td>
+        <button type="button" class="btn btn-primary edit-button">Edit</button>
+    </td>
+    <td>
+        <button type="button" class="btn btn-danger delete-button">Delete</button>
+    </td>
+</tr>
+
+<tr>
+    <td>5</td>
+    <td>xyz-298</td>
+    <td class="wrapText">Aqib</td>
+    <td>Male</td>
+    <td>21</td>
+    <td>
+        <button type="button" class="btn btn-primary edit-button">Edit</button>
+    </td>
+    <td>
+        <button type="button" class="btn btn-danger delete-button">Delete</button>
+    </td>
+</tr>
+
+<tr>
+    <td>6</td>
+    <td>xyz-298</td>
+    <td>Saad</td>
+    <td>Male</td>
+    <td>21</td>
+    <td>
+        <button type="button" class="btn btn-primary edit-button">Edit</button>
+    </td>
+    <td>
+        <button type="button" class="btn btn-danger delete-button">Delete</button>
+    </td>
+</tr>
+
+<tr>
+    <td>7</td>
+    <td>xyz-298</td>
+    <td>Haris</td>
+    <td>Female</td>
+    <td>21</td>
+    <td>
+        <button type="button" class="btn btn-primary edit-button">Edit</button>
+    </td>
+    <td>
+        <button type="button" class="btn btn-danger delete-button">Delete</button>
+    </td>
+</tr>
+
+
+<tr>
+    <td>8</td>
+    <td>xyz-298</td>
+    <td>Saqib</td>
+    <td>Female</td>
+    <td>21</td>
+    <td>
+        <button type="button" class="btn btn-primary edit-button">Edit</button>
+    </td>
+    <td>
+        <button type="button" class="btn btn-danger delete-button">Delete</button>
+    </td>
+</tr>
+
+<tr>
+    <td>9</td>
+    <td>xyz-298</td>
+    <td>Shaheer</td>
+    <td>Female</td>
+    <td>19</td>
+    <td>
+        <button type="button" class="btn btn-primary edit-button">Edit</button>
+    </td>
+    <td>
+        <button type="button" class="btn btn-danger delete-button">Delete</button>
+    </td>
+</tr>
+
+<tr>
+    <td>10</td>
+    <td>xyz-298</td>
+    <td>Maryam</td>
+    <td>Female</td>
+    <td>23</td>
+    <td>
+        <button type="button" class="btn btn-primary edit-button">Edit</button>
+    </td>
+    <td>
+        <button type="button" class="btn btn-danger delete-button">Delete</button>
+    </td>
+</tr>
+
+<tr>
+    <td>11</td>
+    <td>xyz-298</td>
+    <td>Mahnoor</td>
+    <td>Female</td>
+    <td>26</td>
+    <td>
+        <button type="button" class="btn btn-primary edit-button">Edit</button>
+    </td>
+    <td>
+        <button type="button" class="btn btn-danger delete-button">Delete</button>
+    </td>
+</tr>
+
+<tr>
+    <td>12</td>
+    <td>xyz-298</td>
+    <td>Osama</td>
+    <td>Male</td>
+    <td>28</td>
+    <td>
+        <button type="button" class="btn btn-primary edit-button">Edit</button>
+    </td>
+    <td>
+        <button type="button" class="btn btn-danger delete-button">Delete</button>
+    </td>
+</tr>
+
+<tr>
+    <td>13</td>
+    <td>xyz-298</td>
+    <td>Mustafa</td>
+    <td>Male</td>
+    <td>22</td>
+    <td>
+        <button type="button" class="btn btn-primary edit-button">Edit</button>
+    </td>
+    <td>
+        <button type="button" class="btn btn-danger delete-button">Delete</button>
+    </td>
+</tr>

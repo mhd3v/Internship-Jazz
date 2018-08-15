@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.17/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/select/1.2.6/css/select.dataTables.min.css">
+    <link rel="stylesheet" href="https://editor.datatables.net/extensions/Editor/css/editor.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/keytable/2.4.1/css/keyTable.dataTables.min.css">
+
+    
+</head>
+
+<body>
+    
+    <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th></th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th width="18%">Start date</th>
+                <th>Salary</th>
+                <th></th>
+            </tr>
+        </thead>
+    </table>
+
+    <div id="report-modal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">User Report</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <label>Starting date: </label><input type="date" id="starting-date" class="form-control"/><br>
+                    <label>Ending date: </label><input type="date" id="ending-date" class="form-control"/>
+                   
+                    <button class="get-report btn btn-default my-1">Get report</button>
+                    <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/jquery-3.3.1.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    
+    <script src="../js/jquery-mahad.js"></script>
+
+    <script src="../js/jquery.dataTables.min.js"></script>
+    <script src="../js/dataTables.buttons.min.js"></script>
+    <script src="../js/dataTables.select.min.js"></script>
+    <script src="../js/dataTables.keyTable.min.js"></script>
+    <script src="../js/dataTables.editor.js"></script>
+    <script src="../data1.js"></script>
+
+    <script>
+
+    var editor; // use a global for the submit and return data rendering in the examples
+    var table;
+    var currentRow;
+
+    $(document).ready(function () {
+
+        editor = new $.fn.dataTable.Editor({
+        
+            data: data,
+            table: "#example",
+            fields: [{
+                label: "First name:",
+                name: "first_name"
+            }, {
+                label: "Last name:",
+                name: "last_name"
+            }, {
+                label: "Position:",
+                name: "position"
+            }, {
+                label: "Office:",
+                name: "office"
+            }, {
+                label: "Extension:",
+                name: "extn"
+            }, {
+                label: "Start date:",
+                name: "start_date",
+                type: "datetime"
+            }, {
+                label: "Salary:",
+                name: "salary",
+                attr: {
+                    type: "number"
+                }
+            }
+
+            ],
+
+            formOptions: {
+                inline: {
+                    onBlur: 'submit'
+                }
+            },
+
+            ajax: function (method, url, d, successCallback, errorCallback) {
+
+                console.log('coming in ajax function');
+                
+                $.each(data, function (i, item) {
+
+                    var jsonRowId = data[i].DT_RowId;
+
+                    if (d.data.hasOwnProperty(jsonRowId)) {
+
+                        var rowObject = d.data[jsonRowId]; //if jsonRowId = row_1 then this will be equivalent to => var rowObject = d.data.row_1
+                        var jsonObject = data[i];
+
+                        var property = Object.getOwnPropertyNames(rowObject)[0];    //only property for currently selected cell will be in d.data.row_id
+                       
+                        jsonObject[property] = rowObject[property];
+
+                        //table.row(currentRow).remove().draw();
+
+                        
+                    }
+
+                });
+
+                var output = { data: data }; 
+
+                if (d.action === 'create') {
+                    console.log('Create ajax call');
+                }
+
+                if (d.action === 'replace') {
+                    console.log('Replace ajax call');
+                }
+
+                if(d.action == 'edit'){
+                    console.log("Edit ajax call");
+                }
+
+                successCallback(output);
+                console.log('table redrawn');
+            }
+
+        });
+    
+        $('#example').on('click', 'tbody td.editable', function (e) {
+            editor.inline(this);
+        });
+
+        table = $('#example').DataTable({
+            dom: "Bfrtip",
+            data: data,
+            columns: [
+                {
+                    data: null,
+                    defaultContent: '',
+                    className: 'select-checkbox',
+                    orderable: false
+                },
+                { 
+                    data: "first_name",
+                    defaultContent: '',
+                    className: 'editable'
+                },
+                { 
+                    data: "last_name",
+                    defaultContent: '',
+                    className: 'editable'
+                },
+                { 
+                    data: "position",
+                    defaultContent: '',
+                    className: 'editable'
+                },
+                {
+                    data: "office",
+                    defaultContent: '',
+                    className: 'editable'
+                    
+                },
+                { 
+                    data: "start_date",
+                    defaultContent: '',
+                    className: 'editable'
+                },
+                { 
+                    data: "salary", render: $.fn.dataTable.render.number(',', '.', 0, '$'),
+                    defaultContent: '',
+                    className: 'editable'
+                },
+                {
+                    data: '',
+                    defaultContent: '<button class="user-report">View Report</button>'
+                }
+            ],
+            order: [1, 'asc'],
+            select: {
+                style: 'os',
+                selector: 'td:first-child'
+            },
+            buttons: [{
+                    text: 'New',
+                    action: function(){
+
+                        var lastIndex = Object.keys(data).length;
+
+                        var newRowId = 'row_'+ (lastIndex+1);
+
+                        data.push({  
+                            "DT_RowId": newRowId,
+                            "first_name": "",
+                            "last_name": "",
+                            "position": "",
+                            "email": "",
+                            "office": "",
+                            "extn": "",
+                            "age": "",
+                            "salary": "",
+                            "start_date": "",
+                            "user_report": ""
+                        });
+
+                        var addedRowObject = data[lastIndex];
+
+                        table.row.add(addedRowObject).draw();
+
+                        table.cell($(`#${newRowId} td:nth-child(2)`)).focus();
+
+                    }
+                }],
+
+            keys: {
+                editor: editor,
+                columns: ':not(:first-child)',
+                editOnFocus: true
+            },
+
+        });
+
+
+        table
+            .on('key-focus', function (e, datatable, cell) {
+                if($(cell.node()).hasClass('editable'))
+                    cell.edit();
+            })
+
+        var userRow;
+
+        table.$('.user-report').on('click', function() {
+
+            userRow = $(this).closest('tr');
+             
+            if (table.row(userRow).data().user_report === undefined)
+                return alert('Report data not available');
+
+            $("#report-modal").modal('show');
+        });
+
+        $('.get-report').on('click', function () {
+
+            var startingDate = $('#starting-date').val();
+            var endingDate = $('#ending-date').val();
+
+            if(startingDate != '' && endingDate != ''){
+
+                startingDate = CanvasJS.formatDate(startingDate, "YYYY/M/D");
+                endingDate = CanvasJS.formatDate(endingDate, "YYYY/M/D");
+
+                var startingDateUnix = new Date(startingDate).getTime();
+                var endingDateUnix = new Date(endingDate).getTime();
+
+                if(startingDateUnix > endingDateUnix)
+                    return alert('Starting date needs to be before the ending date');
+
+                getUserReport(startingDateUnix, endingDateUnix, table.row(userRow).data().user_report);
+            }
+            else
+                alert('Enter starting and ending month')
+           
+        });
+        
+        var chart;
+
+        function getUserReport(startingDate, endingDate, userData) {
+
+           //need to do filteration in a temp array. If changes done in original array, data will be lost
+
+            var userDataCopy = $.map(userData, function (obj) { //deep copying the original array, since it has nested objects
+                return $.extend(true, {}, obj);
+            });
+            
+            $.each(userDataCopy, function (i, item) {
+
+                var filteredDataPoints = [];
+
+                $.each(userDataCopy[i].dataPoints, function(j, item){
+
+                    var date = CanvasJS.formatDate(userDataCopy[i].dataPoints[j].x, "YYYY/M/D");
+                    var unixDate = new Date(date).getTime();
+
+                    if(unixDate >= startingDate && unixDate <= endingDate)
+                        filteredDataPoints.push(userDataCopy[i].dataPoints[j]);
+                });
+
+                userDataCopy[i].dataPoints = filteredDataPoints;
+               
+            });
+
+            chart = new CanvasJS.Chart("chartContainer", {
+                animationEnabled: true,
+                theme: "light2",
+
+                axisX: {
+                    valueFormatString: "MMM YYYY",
+                    crosshair: {
+                        enabled: true,
+                        snapToDataPoint: true
+                    }
+                },
+                axisY: {
+                    title: "Sales",
+                    crosshair: {
+                        enabled: true
+                    }
+                },
+                toolTip: {
+                    shared: true
+                },
+                legend: {
+                    cursor: "pointer",
+                    verticalAlign: "center",
+                    horizontalAlign: "right",
+                    dockInsidePlotArea: false,
+                    itemclick: toogleDataSeries
+                },
+                data: userDataCopy
+            });
+
+            
+            debugger;
+
+            chart.render();
+
+            $('.canvasjs-chart-credit').hide();
+
+            function toogleDataSeries(e) {
+                if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+                    e.dataSeries.visible = false;
+                } else {
+                    e.dataSeries.visible = true;
+                }
+                chart.render();
+            }
+
+        }
+                
+
+    });
+
+    </script>
+
+</body>
+</html>

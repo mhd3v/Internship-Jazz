@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI</title>
+
+    <link rel="stylesheet" href="../resources/css/jquery-ui.min.css">
+
+    <link rel="stylesheet" href="../resources/css/bootstrap.css">
+    
+
+    <style>
+        #tags-list {
+           
+        }
+
+        #tags-list li{
+            padding: 1%;
+            display: inline;
+            background-color: aliceblue;
+            margin: 1%;
+        }
+
+        .accordion .ui-accordion-content { 
+            padding: 5px;
+            color: #777;
+        }
+
+        .ui-accordion-header { 
+            color: white;
+            background-color:black;
+            border-color: inherit;
+        }
+
+        .ui-accordion-header.ui-state-active { 
+            color: white; 
+            background-color: black; 
+            border-color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+
+    </style>
+
+    <body>
+        
+        <div class="container-fluid">
+            <div class="row no-gutters">
+                <div class="col-2">
+                    <div class="accordion">
+                        <h3>Menu 1</h3>
+                        <div class="accordion">
+                            <h3>Sub-Menu1</h3>
+                            <div>
+                                <ul>
+                                    <li>item1</li>
+                                    <li>item2</li>
+                                    <li>item3</li>
+                                </ul>
+                            </div>
+                            <h3>Sub-Menu2</h3>
+                            <div>
+                                <ul>
+                                    <li>item1</li>
+                                    <li>item2</li>
+                                    <li>item3</li>
+                                </ul>
+                            </div>
+                            <h3>Sub-Menu3</h3>
+                            <div>
+                                <ul>
+                                    <li>item1</li>
+                                    <li>item2</li>
+                                    <li>item3</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h3>Menu 2</h3>
+                        <div class="accordion">
+                            <h3>Sub-Menu1</h3>
+                            <div>
+                                <ul>
+                                    <li>item1</li>
+                                    <li>item2</li>
+                                    <li>item3</li>
+                                </ul>
+                            </div>
+                            <h3>Sub-Menu2</h3>
+                            <div>
+                                <ul>
+                                    <li>item1</li>
+                                    <li>item2</li>
+                                    <li>item3</li>
+                                </ul>
+                            </div>
+                            <h3>Sub-Menu3</h3>
+                            <div>
+                                <ul>
+                                    <li>item1</li>
+                                    <li>item2</li>
+                                    <li>item3</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-10">
+                    <div class="form-control" id="tags-input" type="text" autofocus contenteditable="true">
+                        
+                    </div>
+                    <br>
+                    <!-- <ul id="tags-list"></ul> -->
+                </div>
+            </div>
+        </div>
+
+    
+    <script src="../resources/js/jquery-3.3.1.js"></script>
+    <script src="../resources/js/jquery-ui.min.js"></script>
+    
+    <script src="../resources/js/popper.min.js"></script>
+    <script src="../resources/js/bootstrap.min.js"></script>
+
+
+    <script>
+
+        $(function () {
+            $(".accordion").accordion({
+                collapsible: true,
+                heightStyle: "content"
+            });
+        });
+
+        $(function () {
+
+            var data = [
+                "ActionScript",
+                "AppleScript",
+                "Asp",
+                "BASIC",
+                "C",
+                "C++",
+                "Clojure",
+                "COBOL",
+                "ColdFusion",
+                "Erlang",
+                "Fortran",
+                "Groovy",
+                "Haskell",
+                "Java",
+                "JavaScript",
+                "Lisp",
+                "Perl",
+                "PHP",
+                "Python",
+                "Ruby",
+                "Scala",
+                "Scheme"
+            ];
+
+            $("#tags-input").autocomplete({
+                source: data,
+                focus: function (event, ui) {
+                    // prevent autocomplete from updating the textbox
+                    event.preventDefault();
+                    // manually update the textbox
+                    $(this).val(ui.item.label);
+                },
+                select: function (event, ui) {
+                    // prevent autocomplete from updating the textbox
+                    event.preventDefault();
+                    // manually update the textbox and hidden field
+                    $(this).val('');
+                    $("#tags-input").append('<li><span>'+ui.item.value+'</span> <a href="" class="badge badge-danger remove-btn">x</a></li>');
+                }
+            });
+
+            $("#tags-input").bind("autocompleteselect", function (event, ui) {
+                
+                // Remove the element
+                data.splice(data.indexOf(ui.item.value), 1);
+
+                // Re-assign the source
+                $(this).autocomplete("option", "source", data);
+            });
+
+            $(document).on("click", ".remove-btn", function (e) {
+                e.preventDefault();
+                var li = $(this).closest('li');
+                var tagToRemove = li.find('span').text();
+                data.push(tagToRemove)
+                li.remove();
+            });
+
+        });
+    </script>
+    </body>
+
+</html>

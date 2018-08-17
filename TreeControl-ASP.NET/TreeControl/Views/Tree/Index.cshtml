@@ -1,0 +1,103 @@
+﻿@model List<TreeControl.Models.Node>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@section Styles {
+    <link href="https://cdn.jsdelivr.net/npm/jquery.fancytree@2.27/dist/skin-win8/ui.fancytree.min.css" rel="stylesheet" type="text/css" />
+}
+
+@section scripts {
+    @Scripts.Render("~/Scripts/jquery.fancytree.js")
+}
+
+<div id="tree"></div>
+<button onclick="sendSelectedNodes()">Submit</button>
+
+
+@using (Html.BeginForm("CheckForm", "Tree", FormMethod.Post))
+{
+    <div class="form-group">
+        <input type="text" name="page-name" />
+        <input type="submit" value="Send" />
+    </div>
+}
+
+<script>
+
+var tree;
+
+$(function () {
+
+    tree = $("#tree").fancytree({
+        extensions: ["edit", "filter"],
+        source: @Html.Raw(Json.Encode(Model)),
+
+        select: function (event, data) {
+
+            var node = data.node;
+
+            var parent = node.parent;
+
+            var children = parent.children;
+
+            var childrenArrayLenght = children.length;
+            var selectedChildrenLength = 0;
+
+            children.forEach(child => {
+                if (child.isSelected())
+                    selectedChildrenLength++;
+            });
+
+            if (selectedChildrenLength === childrenArrayLenght)
+                $(parent.span).find('.fancytree-title').css('color', '#09ed14');
+            else if (selectedChildrenLength >= 1)
+                $(parent.span).find('.fancytree-title').css('color', 'orange');
+            else
+                $(parent.span).find('.fancytree-title').css('color', 'black');
+        },
+
+        checkbox: true,
+    });
+
+});
+
+function sendSelectedNodes() {
+
+    var selectedNodes = ($("#tree").fancytree('getTree').getSelectedNodes());
+
+    var selectedNodesTitles = [];
+
+    selectedNodes.forEach(node => {
+        selectedNodesTitles.push($(node.span).find('.fancytree-title').text());
+    });
+
+    console.log(selectedNodesTitles);
+
+    $.ajax({
+        traditional: true,
+        type: 'POST',
+        url: '@Url.Action("GetSelectedNodes", "Tree")',
+        data: { 'selectedNodesTitles': selectedNodesTitles },
+        cache: false,
+        success: function (result) {
+            if (result.success) {
+
+            }
+
+            else {
+                alert('select some nodes');
+            }
+        },
+
+        error: function (result) {
+            alert('error connecting to server');
+        }
+    });
+
+}
+
+
+
+</script>

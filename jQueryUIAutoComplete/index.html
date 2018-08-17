@@ -44,6 +44,7 @@
         }
 
         .fa-times{
+            font-size: 10px;
             color:black;
         }
     
@@ -191,6 +192,17 @@
 
                 // Re-assign the source
                 $(this).autocomplete("option", "source", data);
+            });
+
+            $(".input-field").keyup(function (event) {
+                if(event.which == 13){
+                    var currentInputVal = $('.input-field').val();
+
+                    if(currentInputVal != ''){
+                        $('<div class="tag-bubble"><span>' + currentInputVal + '</span> <i class="fas fa-times"></i></div>').insertBefore($(this));
+                        $(this).val('');
+                    }
+                }
             });
 
             $(document).on("click", ".fa-times", function (e) {

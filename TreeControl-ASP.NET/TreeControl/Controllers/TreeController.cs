@@ -45,7 +45,7 @@ namespace TreeControl.Controllers
         [HttpPost]
         public ActionResult GetSelectedNodes(string[] selectedNodesTitles)
         {
-            if (selectedNodesTitles.Length == 0)
+            if (selectedNodesTitles == null)
             {
                 return Json(new { success = false }, JsonRequestBehavior.AllowGet);
             }

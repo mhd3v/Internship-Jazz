@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../../resources/css/styles.css">
+
+    <title>Contact</title>
+
+</head>
+
+<body>
+
+    <div class="container-fluid px-0">
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        
+            <a class="navbar-brand" href="index.html">Mahad's Site</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        
+            <div class="collapse navbar-collapse" id="navbar-content">
+                <ul class="navbar-nav ml-auto">
+        
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+        
+                    <li class="nav-item active">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                    </li>
+        
+                </ul>
+        
+            </div>
+        </nav>
+
+        <div class="row justify-content-center no-gutters p-5">
+            
+            <h2 class="text-center">Contact Us</h2>
+           
+            <div class="w-100"></div>
+
+            <div class="col">
+
+                <form>
+
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input id="name" type="text" class="form-control" placeholder="Enter you name" autofocus>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email address</label>
+                        <input type="email" class="form-control" placeholder="Enter email">
+                        <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                   
+                    <div class="form-group">
+                        <label>Your query</label>
+                        <textarea class="form-control" rows="3"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Send</button>
+                </form>
+
+            </div>
+        </div>
+
+        <hr>
+        <footer class="p-3">
+        
+            <div class="row no-gutters">
+        
+                <div class="col-md-4">
+                    <p>&#169; 2018, Mahad Amir</p>
+                </div>
+        
+                <div class="col-md-4 offset-md-4">
+        
+                    <ul class="bottom-nav">
+        
+                        <li>
+                            <a href="#">About Us</a>
+                        </li>
+        
+                        <li>
+                            <a href="#">Privacy Policy</a>
+                        </li>
+        
+                        <li>
+                            <a href="#">Terms of use</a>
+                        </li>
+        
+                        <li>
+                            <a href="#">Cookie Policy</a>
+                        </li>
+                    </ul>
+        
+                </div>
+        
+            </div>
+        
+        
+        </footer>
+
+        <!-- Modal -->
+        <div class="modal fade" id="form-modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Location</h5>
+                        <button type="button" class="close" data-dismiss="modal"></button>
+                    </div>
+                    <div id="form-data" class="modal-body">
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+    <script>
+        
+        $('document').ready(function(){
+            
+            $('form').on('submit', function(e){
+
+                e.preventDefault();
+            
+                $('#form-data').html($('#name').val());
+                $('#form-modal').modal('show');
+            });
+
+        });
+        
+    </script>
+</body>
+
+</html>

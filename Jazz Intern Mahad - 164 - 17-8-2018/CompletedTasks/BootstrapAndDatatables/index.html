@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../resources/css/bootstrap.css">
+    <link rel="stylesheet" href="../../resources/css/dataTables.bootstrap4.min.css">
+    
+    <link rel="stylesheet" href="../../resources/css/styles.css">
+    
+    <title>Mahad's Site</title>
+
+  </head>
+
+  <body>
+
+    <div class="container-fluid px-0">
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+            <a class="navbar-brand" href="index.html">Mahad's Site</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbar-content">
+                <ul class="navbar-nav ml-auto">
+
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                    </li>
+                
+                </ul>
+                
+            </div>
+        </nav>
+
+
+        <div id="main-slides" class="carousel slide carousel-fade" data-ride="carousel">
+            <div class="carousel-inner">
+
+                <ol class="carousel-indicators">
+                    <li data-target="#main-slides" data-slide-to="0" class="active"></li>
+                    <li data-target="#main-slides" data-slide-to="1"></li>
+                    <li data-target="#main-slides" data-slide-to="2"></li>
+                </ol>
+
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="../../resources/images/image1.jpg">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="../../resources/images/image2.jpg">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="../../resources/images/image3.jpg">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#main-slides" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#main-slides" role="button" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+        <div class="jumbotron">
+
+            <h1 class="text-center mb-5">Items</h1>
+
+            <div class="row justify-content-center no-gutters p-4">
+
+                <div class="col-12 p-2 table-responsive">
+
+                    <table id="data-table" class="table table-striped table-hover">
+
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th><input type="checkbox" id="select-all-check"></th>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Gender</th>
+                                <th>Age</th>
+                                <th>Edit</th>
+                                <th id="delete-header">Delete</th>
+                            </tr>
+                        </thead>
+                
+                    </table>
+
+                </div>
+                
+                <div class="col-sm p-2">
+                    <div class="card">
+                        <img class="card-img-top" src="../../resources/images/image1.jpg">
+                        <div class="card-body">
+                            <h5 class="card-title">Location 1</h5>
+                            <p class="card-text">Lorem ipsum dolor sit ame nobis ad ut laborum. Asperiores, reiciendis eum? Quidem, sapiente voluptatem.</p>  
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#info-modal">
+                                View more info
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm p-2">
+                    <div class="card">
+                        <img class="card-img-top" src="../../resources/images/image2.jpg">
+                        <div class="card-body">
+                            <h5 class="card-title">Location 2</h5>
+                            <p class="card-text">Lorem ipsum dolor sit ame nobis ad ut laborum. Asperiores, reiciendis eum? Quidem, sapiente voluptatem.</p>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#info-modal">
+                                View more info
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm p-2">
+                    <div class="card">
+                        <img class="card-img-top" src="../../resources/images/image3.jpg">
+                        <div class="card-body">
+                            <h5 class="card-title">Location 3</h5>
+                            <p class="card-text">Lorem ipsum dolor sit ame nobis ad ut laborum. Asperiores, reiciendis eum? Quidem, sapiente voluptatem.</p>
+                            
+                            <div class="collapse" id="error-collapse">
+                                <div class="alert alert-danger">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica,
+                                    craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                                </div>
+                            </div>
+
+                            <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#error-collapse">
+                                View more info
+                            </button>
+                        </div>
+                    </div>           
+                </div>
+
+            </div>
+
+            <div class="row justify-content-center no-gutters mt-5 p-4">
+            
+                <div class="col-sm p-2">
+                    <div class="card">
+                        <img class="card-img-top" src="../../resources/images/image1.jpg">
+                        <div class="card-body">
+                            <h5 class="card-title">Location 1</h5>
+                            <p class="card-text">Lorem ipsum dolor sit ame nobis ad ut laborum. Asperiores, reiciendis eum? Quidem, sapiente voluptatem.</p>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#info-modal">
+                                View more info
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col-sm p-2">
+                    <div class="card">
+                        <img class="card-img-top" src="../../resources/images/image2.jpg">
+                        <div class="card-body">
+                            <h5 class="card-title">Location 2</h5>
+                            <p class="card-text">Lorem ipsum dolor sit ame nobis ad ut laborum. Asperiores, reiciendis eum? Quidem, sapiente voluptatem.</p>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#info-modal">
+                                View more info
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col-sm p-2">
+                    <div class="card">
+                        <img class="card-img-top" src="../../resources/images/image3.jpg">
+                        <div class="card-body">
+                            <h5 class="card-title">Location 3</h5>
+                            <p class="card-text">Lorem ipsum dolor sit ame nobis ad ut laborum. Asperiores, reiciendis eum? Quidem, sapiente voluptatem.</p>
+            
+                            <div class="collapse" id="error-collapse">
+                                <div class="alert alert-danger">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica,
+                                    craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                                </div>
+                            </div>
+            
+                            <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#error-collapse">
+                                View more info
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+
+        </div>
+        
+        
+        
+        <footer class="p-3">
+            
+            <div class="row no-gutters">
+
+                <div class="col-md-4">
+                    <p>&#169; 2018, Mahad Amir</p>
+                </div>
+
+                <div class="col-md-4 offset-md-4">
+
+                    <ul class="bottom-nav">
+
+                        <li>
+                            <a href="#">About Us</a>
+                        </li>
+
+                        <li>
+                            <a href="#">Privacy Policy</a>
+                        </li>
+
+                        <li>
+                            <a href="#">Terms of use</a>
+                        </li>
+
+                        <li>
+                            <a href="#">Cookie Policy</a>
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+            
+        </footer>
+
+    </div>
+
+    
+    <!--Info Modal -->
+    <div class="modal fade" id="info-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Location</h5>
+                    <button type="button" class="close" data-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, qui. Deserunt eveniet sapiente, quas reprehenderit quaerat iste sit, incidunt itaque ratione consequuntur est consequatur eligendi. Accusantium accusamus doloremque blanditiis corporis!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Delete Modal -->
+    <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"></h5>
+                    <button type="button" class="close" data-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete the selected row?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" id="delete-row-button" class="btn btn-primary">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Edit Modal -->
+    <div class="modal fade" id="edit-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"></h5>
+                    <button type="button" class="close" data-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                   <label for="">Updated name</label>
+                   <input class="form-control" type="text" id="updated-name">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" id="save-edit-button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Delete Selected Rows Modal -->
+    <div class="modal fade" id="delete-selected-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Deleting Rows</h5>
+                    <button type="button" class="close" data-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" id="delete-selected-modal-button" class="btn btn-primary">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <script src="../../resources/js/jquery-3.3.1.js"></script>
+    <script src="../../resources/js/popper.min.js"></script>
+    <script src="../../resources/js/bootstrap.min.js"></script>
+
+    <!-- data tables library -->
+    <script src="../../resources/js/jquery.dataTables.min.js"></script>
+    <script src="../../resources/js/dataTables.bootstrap4.min.js"></script>
+    <script src="../../data/data.js"></script>
+   
+    <script>
+
+    $('document').ready(function() {
+
+        var selectedRow;
+        var selectedRowsCount;
+        var buttonsEnabled = true;
+
+        var editButton = '<button type="button" class="btn btn-primary edit-button">Edit</button>';
+        var deleteButton = '<button type="button" class="btn btn-danger delete-button">Delete</button>';
+        var checkBox = '<input class="select-row-check" type="checkbox">';
+        
+        var table = $('#data-table').DataTable({
+
+            data: data,
+
+            columns: [
+                { data: '#'},
+                { data: null,
+                  defaultContent: checkBox},
+                { data: 'id'},
+                { data: 'name', class:"editable-data name"},
+                { data: 'gender', class: "editable-data gender"},
+                { data: 'age', class: "editable-data age"},
+                {
+                    data: null,
+                    defaultContent: editButton
+                },
+                {
+                    data: null,
+                    defaultContent: deleteButton
+                }
+            ],
+
+            pageLength: 10,
+
+            "createdRow": function (row, data, dataIndex) {
+                if (data.gender == "Female") 
+                    $(row).find('.edit-button').prop('disabled', true);
+            },
+            
+            "columnDefs": [
+                { "visible": false, "targets": 0 },
+                { "orderable": false, "targets": [1,6,7] }
+            ]
+        });
+
+
+        $('#data-table').on('click', 'tbody .delete-button', function () {
+            setModal(this, "delete-modal", "Deleting Record for: ");
+        });
+
+        $('#data-table').on('click', 'tbody .edit-button', function () {
+            $("#updated-name").val('');
+            setModal(this, "edit-modal", "Editing Record for: ");
+        });
+
+        $('#save-edit-button').on('click', function () {
+            var updatedData = $('#updated-name').val();
+            
+            if(updatedData === ""){
+                return alert('Updated name cannot be empty');
+            }
+
+            //need to get the td, because table.cell() expects td
+            var nameTd = selectedRow.find('td:nth-child(3)');
+            var cell = table.cell(nameTd); 
+            
+            var updatedData = $('#updated-name').val();
+            cell.data(updatedData).draw();
+            $('#edit-modal').modal('hide');
+        });
+
+        $('#delete-row-button').on('click', function () {
+            table.row(selectedRow).remove().draw();
+            $('#delete-modal').modal('hide');
+        });
+        
+        $("#select-all-check").on('click', function(){
+
+            /*
+            jQuery DataTables removes elements that are not displayed on screen from DOM.
+            $() API method gives access to all nodes in the table, not just ones displayed on screen
+            */
+
+            if(table.rows('.selectedRows').data().length == table.data().count()){
+                enableDeleteButtons();
+                deselectAll();
+            }
+                
+            else{
+               disableDeleteButtons();
+               selectAll();
+            }
+                
+                  
+        });
+
+        //individual row selection
+        $('#data-table tbody').on('click', '.select-row-check', function () {
+
+            editableRow = $(this).closest('tr').toggleClass('selectedRows');
+            selectedRowsCount = table.rows('.selectedRows').data().length;
+
+            if(selectedRowsCount == 0 || selectedRowsCount == 1){
+                enableDeleteButtons();
+                // if(selectedRowsCount == 1)
+                //     editMode = true;
+            }
+                
+            else if(selectedRowsCount == table.rows().count())
+                $('#select-all-check').prop('checked', true);
+
+            else{
+                $('#select-all-check').prop('checked', false);
+                disableDeleteButtons();
+                // editMode = false;
+            }
+                
+        });
+
+        function setModal(btn, modalId, msg){
+            selectedRow = $(btn).closest('tr');
+            var selectedRowData = table.row(selectedRow).data();
+
+            $(`#${modalId}`).find('.modal-title').html(msg + selectedRowData.name);
+            $(`#${modalId}`).modal('show');
+        }
+
+        var deleteButtons = table.$(".delete-button");
+
+        function enableDeleteButtons(){ 
+            $('#delete-header').html("Delete");
+            deleteButtons.prop('disabled', false);
+            buttonsEnabled = true;
+        }
+
+        function disableDeleteButtons(){
+            deleteButtonCode = '<button type="button" class="btn btn-danger" id="delete-thead-button">Delete Selected</button>';
+            $('#delete-header').html(deleteButtonCode);
+            deleteButtons.prop('disabled', true);
+            buttonsEnabled = false;
+
+            //set listener for selected rows deletion button
+            
+            $('#delete-thead-button').click(function () {
+                var selectedRowsLenght = table.rows('.selectedRows').data().length;
+                $("#delete-selected-modal").find('.modal-body').html(`Are you sure you want to delete ${selectedRowsLenght} rows?`);
+                $("#delete-selected-modal").modal('show');
+            });
+
+
+            //listener for confirm button
+            $('#delete-selected-modal-button').click(function () {
+                table.rows('.selectedRows').remove().draw();
+                 $("#delete-selected-modal").modal('hide');
+                 enableDeleteButtons();
+            });
+        }
+
+        function selectAll(){
+            table.$('tr').addClass('selectedRows');
+            table.$('.select-row-check').prop('checked', true);
+        }
+
+        function deselectAll() {
+            table.$('tr').removeClass('selectedRows');
+            table.$('.select-row-check').prop('checked', false);
+        }
+      
+        
+        var editingCell = false;
+    
+        $('.editable-data').on({
+
+            dblclick: function () {
+
+                //checks:
+                // 1. selected row is being editted
+                // 2. only a single row is selected
+                // 3. dont run listener while a cell is being edited
+
+                if ($(this).closest('tr').hasClass('selectedRows') && selectedRowsCount == 1 && !editingCell) {
+
+                    editingCell = true;
+                    currentData = $(this).html();
+
+                    if($(this).hasClass('name')){
+                        console.log('editing name');
+                        $(this).html(`<input class="test" type="text" value="${currentData}"/>`);
+                    }
+
+                    else if($(this).hasClass('gender')){
+                        $(this).html(`<select class="test"><option>Male</option><option>Female</option></select>`);
+                        $(".test").val(currentData);
+                    }
+                        
+                    $('.test').focus();
+                }
+            },
+
+            focusout: function() {
+                console.log('edit mode cancelled');
+
+                editingCell = false;
+                table.cell($(this)).data($('.test').val()).draw();
+            }
+        });
+
+    });
+
+    </script>
+
+  </body>
+</html>

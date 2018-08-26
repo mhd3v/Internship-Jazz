@@ -169,13 +169,9 @@
 
             $(".input-field").autocomplete({
                 source: data,
-                focus: function (event, ui) {
-                    // prevent autocomplete from updating the textbox
-                    event.preventDefault();
-                    // manually update the textbox
-                    $(this).val(ui.item.label);
-                },
-                select: function (event, ui) {
+
+                select: function (event, ui) {  //item selected from dropdown 
+                
                     // prevent autocomplete from updating the textbox
                     event.preventDefault();
                     // manually update the textbox and hidden field
@@ -185,7 +181,7 @@
                 }
             });
 
-            $(".input-field").bind("autocompleteselect", function (event, ui) {
+            $(".input-field").bind("autocompleteselect", function (event, ui) { //item selected from dropdown 
                 
                 // Remove the element
                 data.splice(data.indexOf(ui.item.value), 1);
@@ -194,7 +190,7 @@
                 $(this).autocomplete("option", "source", data);
             });
 
-            $(".input-field").keyup(function (event) {
+            $(".input-field").keyup(function (event) {  //on enter pressed
                 if(event.which == 13){
                     var currentInputVal = $('.input-field').val();
 
@@ -205,7 +201,7 @@
                 }
             });
 
-            $(document).on("click", ".fa-times", function (e) {
+            $(document).on("click", ".fa-times", function (e) { //cross clicked
                 e.preventDefault();
                 var div = $(this).closest('div');
                 var tagToRemove = div.find('span').text();

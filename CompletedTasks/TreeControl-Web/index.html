@@ -12,14 +12,15 @@
 <body>
     <div id="tree"></div>
     <button onclick="sendSelectedNodes()">Get selected nodes</button>
+
     <script>
 
     var tree;
 
-    $(function () {  // on page load
+    $(function () {
             // Create the tree inside the <div id="tree"> element.
             tree = $("#tree").fancytree({
-                extensions: ["edit", "filter"],
+                
                 source: [
                     
                     {
@@ -77,7 +78,7 @@
     });
 
     function sendSelectedNodes(){
-        var selectedNodes = ($("#tree").fancytree('getTree').getSelectedNodes());
+        var selectedNodes = $("#tree").fancytree('getTree').getSelectedNodes();
         
         var selectedNodesTitles = []; 
 
